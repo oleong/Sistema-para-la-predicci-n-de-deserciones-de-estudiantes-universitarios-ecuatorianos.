@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+	<title>Prediction</title>
+	{% load static %}
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<!-- VENDOR CSS -->
+	<link rel="stylesheet" href="{% static "vendor/bootstrap/css/bootstrap.min.css"%}">
+	<link rel="stylesheet" href="{% static "vendor/font-awesome/css/font-awesome.min.css"%}">
+	<link rel="stylesheet" href="{% static "vendor/linearicons/style.css"%}">
+	<link rel="stylesheet" href="{% static "vendor/chartist/css/chartist-custom.css"%}">
+	<!-- MAIN CSS -->
+	<link rel="stylesheet" href="{% static "css/main.css"%}">
+	<!-- FOR DEMO PURPOSES ONLY. You should remove this in your project -->
+	<link rel="stylesheet" href="{% static "css/demo.css"%}">
+	<!-- GOOGLE FONTS -->
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
+	<!-- ICONS -->
+	<link rel="apple-touch-icon" sizes="76x76" href="{% static "img/apple-icon.png"%}">
+	<link rel="icon" type="image/png" sizes="96x96" href="{% static "img/favicon.png"%}">
+</head>
+
+<body>
+	<!-- WRAPPER -->
+	<div id="wrapper">
+		<!-- NAVBAR -->
+		<nav class="navbar navbar-default navbar-fixed-top">
+			<div class="brand">
+				<a href="{%url 'index'%}"><img src="{% static "img/prediction.png" alt="Prediction" class="img-responsive logo"%}"></a>
+			</div>
+			<div class="container-fluid">
+				<div class="navbar-btn">
+					<button type="button" class="btn-toggle-fullwidth"><i class="lnr lnr-arrow-left-circle"></i></button>
+				</div>
+				<form class="navbar-form navbar-left">
+
+				</form>
+
+
+
+				<div id="navbar-menu">
+					<ul class="nav navbar-nav navbar-right">
+
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="{% static "img/perfil.png" class="img-circle" alt="Avatar"%}"> <span>oscar</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
+							<ul class="dropdown-menu">
+								<li><a href="page-profile.html"><i class="lnr lnr-user"></i> <span>Perfil</span></a></li>
+								<li><a href="#"><i class="lnr lnr-cog"></i> <span>Configuracion</span></a></li>
+								<li><a href="#"><i class="lnr lnr-exit"></i> <span>Salir</span></a></li>
+							</ul>
+						</li>
+						<!-- <li>
+							<a class="update-pro" href="https://www.themeineed.com/downloads/klorofil-pro-bootstrap-admin-dashboard-template/?utm_source=klorofil&utm_medium=template&utm_campaign=KlorofilPro" title="Upgrade to Pro" target="_blank"><i class="fa fa-rocket"></i> <span>UPGRADE TO PRO</span></a>
+						</li> -->
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<!-- END NAVBAR -->
+		<!-- LEFT SIDEBAR -->
+<div id="sidebar-nav" class="sidebar">
+			<div class="sidebar-scroll">
+				<nav>
+					<ul class="nav">
+						<li><a href="{%url 'index'%}" class=""><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
+						<li><a href="{%url 'predecir'%}" class="active"><i class="fa fa-graduation-cap"></i> <span>Predecir</span></a></li>
+						<li><a href="{%url 'datos'%}" class=""><i class="fa fa-archive"></i> <span>Datos</span></a></li>
+						<li><a href="{%url 'graficos'%}" class=""><i class="fa fa-bar-chart"></i> <span>Graficos</span></a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+		<!-- END LEFT SIDEBAR -->
+		<!-- MAIN -->
+		<div class="main">
+			<!-- MAIN CONTENT -->
+			<div class="panel">
+								<div class="panel-body">
+									<h2 class="panel-title">Seleccione el año</h2>
+									<select class="form-control" id="anio">
+										<option value="MAYO A SEPTIEMBRE 2015">2015-1s</option>
+										<option value="MAYO A SEPTIEMBRE 2015">2015-2s</option>
+										<option value="OCTUBRE 2015 A  MARZO 2016">2016-1s</option>
+										<option value="MAYO A  SEPTIEMBRE 2016">2016-2s</option>
+										<option value="OCTUBRE 2016  MARZO 2017">2017-1s</option>
+										<option value="ABRIL A SEPTIEMBRE 2017">2017-2s</option>
+
+
+									</select>
+								</div>
+								<div class="panel-body">
+									<h2 class="panel-title">Seleccione el nivel</h2>
+									<select class="form-control" id="nivel">
+										<option value="1ER NIVEL">1er Nivel</option>
+										<option value="2DO NIVEL">2do Nivel</option>
+										<option value="3ER NIVEL">3er Nivel</option>
+										<option value="4TO NIVEL">4to Nivel</option>
+										<option value="5TO NIVEL">5to Nivel</option>
+										<option value="6TO NIVEL">6to Nivel</option>
+										<option value="7MO NIVEL">7mo Nivel</option>
+										<option value="8VO NIVEL">8vo Nivel</option>
+
+									</select><br>
+									<h2 class="panel-title">Seleccione la carrera</h2>
+									<select class="form-control" id="carreras">
+										<option value="ADMINISTRACION DE EMPRESAS">ADMINISTRACION DE EMPRESAS</option>
+										<option value="COMUNICACIÓN SOCIAL">COMUNICACIÓN SOCIAL</option>
+										<option value="DISEÑO GRÁFICO Y PUBLICIDAD">DISEÑO GRÁFICO Y PUBLICIDAD</option>
+										<option value="EDUCACIÓN">EDUCACIÓN</option>
+										<option value="INFORMÁTICA Y PROGRAMACIÓN">INFORMÁTICA Y PROGRAMACIÓN</option>
+										<option value="INGENIERÍA COMERCIAL">INGENIERÍA COMERCIAL</option>
+										<option value="INGENIERÍA EN CONTADURÍA PÚBLICA Y AUDITORÍA CPA">INGENIERÍA EN CONTADURÍA PÚBLICA Y AUDITORÍA CPA</option>
+										<option value="INGENIERIA EN MARKETING">INGENIERIA EN MARKETING</option>
+										<option value="INGENIERÍA EN SISTEMAS COMPUTACIONALES">INGENIERÍA EN SISTEMAS COMPUTACIONALES</option>
+										<option value="INGENIERÍA INDUSTRIAL">INGENIERÍA INDUSTRIAL</option>
+										<option value="LICENCIATURA EN CIENCIAS DE LA EDUCACIÓN MENCION CULTURA FISICA">LICENCIATURA EN CIENCIAS DE LA EDUCACIÓN MENCION CULTURA FISICA</option>
+										<option value="LICENCIATURA EN CIENCIAS DE LA EDUCACION MENCION EDUCACION BASICA">LICENCIATURA EN CIENCIAS DE LA EDUCACION MENCION EDUCACION BASICA</option>
+										<option value="LICENCIATURA EN CIENCIAS DE LA EDUCACIÓN MENCIÓN EDUCACIÓN BÁSICA">LICENCIATURA EN CIENCIAS DE LA EDUCACIÓN MENCIÓN EDUCACIÓN BÁSICA</option>
+										<option value="LICENCIATURA EN CIENCIAS DE LA EDUCACION MENCION EDUCACION INICIAL">LICENCIATURA EN CIENCIAS DE LA EDUCACION MENCION EDUCACION INICIAL</option>
+										<option value="LICENCIATURA EN CIENCIAS DE LA EDUCACIÓN MENCIÓN EDUCADORES DE PÁRVULOS">LICENCIATURA EN CIENCIAS DE LA EDUCACIÓN MENCIÓN EDUCADORES DE PÁRVULOS</option>
+										<option value="LICENCIATURA EN ENFERMERÍA">LICENCIATURA EN ENFERMERÍA</option>
+										<option value="LICENCIATURA EN GESTIÓN EMPRESARIAL">LICENCIATURA EN GESTIÓN EMPRESARIAL</option>
+										<option value="LICENCIATURA EN NUTRICION HUMANA">LICENCIATURA EN NUTRICION HUMANA</option>
+										<option value="LICENCIATURA EN TERAPIA RESPIRATORIA">LICENCIATURA EN TERAPIA RESPIRATORIA</option>
+										<option value="PSICOLOGIA">PSICOLOGIA</option>
+										<option value="TURISMO">TURISMO</option>
+
+									</select><br>
+									<button onclick="mostrar()" type="button" class="btn btn-success" ><i class="fa fa-database"></i> Predecir</button>
+								</div>
+								<div class="panel-heading">
+
+								</div>
+				<div class="panel-body">
+									<table id="example" class="display" width="100%" cellspacing="0" border="1">
+
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Probabilidad desercion</th>
+
+
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Probabilidad desercion</th>
+
+            </tr>
+        </tfoot>
+        <tbody>
+
+
+        </tbody>
+    </table>
+								</div>
+			<!-- END MAIN CONTENT -->
+		</div>
+		<!-- END MAIN -->
+		<div class="clearfix"></div>
+		<footer>
+			<div class="container-fluid">
+				<p class="copyright">&copy; 2017 </a>. Todos los derechos reservados.</p>
+			</div>
+		</footer>
+	</div>
+	<!-- END WRAPPER -->
+	<!-- Javascript -->
+	<!-- Javascript -->
+	<script src="{% static "vendor/jquery/jquery.min.js"%}"></script>
+	<script src="{% static "vendor/bootstrap/js/bootstrap.min.js"%}"></script>
+	<script src="{% static "vendor/jquery-slimscroll/jquery.slimscroll.min.js"%}"></script>
+	<script src="{% static "vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js"%}"></script>
+	<script src="{% static "vendor/chartist/js/chartist.min.js"%}"></script>
+	<script src="{% static "scripts/klorofil-common.js"%}"></script>
+		<script type="text/javascript" src="https://cdn.datatables.net/v/bs/dt-1.10.16/datatables.min.js"></script>
+
+				<script>
+				$(document).ready(function() {
+    $('#example').DataTable();
+} );
+</script>
+			<script>
+        function mostrar(){
+            var anio="";
+            var nivel="";
+            var carrera="";
+
+            anio=$('#anio').val();
+            nivel=$('#nivel').val();
+            carrera=$('#carreras').val();
+            var trs=$('#example tr').length;
+                 if(trs>1){
+                 $('#example tr:last').remove();
+                 }
+
+            $.ajax({
+                data: {'Anio':anio, 'Nivel':nivel, 'Carrera':carrera},
+                url: '/predecir_datos/',
+                type: 'get',
+                success: function(context) {
+
+                 var t = $('#example').DataTable();
+                 	t.clear();
+						if(context.length==0){
+							 t.row.add( [
+								"no hay datos",
+								"no hay datos",
+								"no hay datos",
+
+						  	] ).draw( false );
+						}
+
+       	 				for (i=0; i < context.length ;i++){
+       	 				t.row.add( [
+
+						context[i].Nombre,
+						context[i].Apellido,
+						context[i].Promedio,
+				      ] ).draw( false );
+
+					}
+                }
+            });
+        }
+    </script>
+
+
+
+</body>
+
+</html>
